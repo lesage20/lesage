@@ -36,7 +36,7 @@
         >
           Dévéloppeur web Fullstack
         </h2>
-        <p class="text-body1 text-grey-5">
+        <p class="text-body1 text-grey-4">
           J'aime résoudre des problèmes de la vie courante grâce aux
           algorithmes. Je crée des sites, des applications web de qualité qui
           offrent un confort quelque soit l'appareil utilisé pour les visiter.
@@ -64,10 +64,10 @@
         <div class="q-py-md">
           <q-btn
             :size="$q.screen.lt.md ? 'md' : 'lg'"
-            color="teal"
+            :color="$q.screen.lt.md ? 'green' : 'teal'"
             label=" Télécharger mon cv"
             icon="download"
-            outline
+            :outline="$q.platform.is.mobile ? true : false"
             :class="{ 'full-width': $q.platform.is.mobile }"
           ></q-btn>
         </div>
@@ -125,7 +125,9 @@
           </transition-group>
         </div>
       </div>
-      <div class="col-xs-12 justify-center items-center text-center">
+      <div
+        class="col-xs-12 desktop-only justify-center items-center text-center"
+      >
         <scroll-btn> </scroll-btn>
       </div>
     </div>
@@ -193,9 +195,6 @@ function onEnter(el, done) {
 }
 </script>
 <style lang="scss">
-.bg-dark-1 {
-  background: $dark-1;
-}
 .right-side-btn:hover,
 .left-side-btn:hover {
   transition: transform 0.3s;

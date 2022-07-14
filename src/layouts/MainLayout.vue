@@ -53,26 +53,16 @@
         </q-toolbar-title>
         <div class="q-pr-md" v-if="$q.platform.is.desktop">
           <q-btn
-            v-for="route in $router"
-            :key="route"
+            v-for="(route, index) in $router.getRoutes().slice(0, 4)"
+            :key="route.path"
             no-caps
             dense
             flat
-            class="text-grey"
+            :color="$route.name == route.name ? 'green' : 'grey'"
+            :to="route.path"
           >
-            <span class="text-green q-mr-xs">01. </span> Accueil
-          </q-btn>
-          <q-btn no-caps dense flat class="text-grey">
-            <span class="text-green q-mr-xs">01. </span> Accueil
-          </q-btn>
-          <q-btn class="text-grey" dense no-caps flat>
-            <span class="text-green q-mr-xs">02. </span> Expériences
-          </q-btn>
-          <q-btn class="text-grey" dense no-caps flat>
-            <span class="text-green q-mr-xs">03. </span> Projets
-          </q-btn>
-          <q-btn class="text-grey" dense no-caps flat>
-            <span class="text-green q-mr-xs">04. </span> Contact
+            <span class="text-green q-mr-xs">0{{ index + 1 }}. </span
+            >{{ route.name ? route.meta.label : "" }}
           </q-btn>
         </div>
         <q-btn
@@ -101,21 +91,26 @@
       dense
       reveal
     >
-      <!-- <q-toolbar class="q-ma-none q-pa-none q-pt-xs">
-        <q-btn-group flat active-class="text-green">
-          <q-btn dense no-caps icon="home" flat label="Accueil"></q-btn>
-          <q-btn
-            dense
-            no-caps
-            icon="check_circle"
-            flat
-            label="Réalisations"
-          ></q-btn>
-          <q-btn dense no-caps icon="contacts" flat label="Contact"></q-btn>
-          <q-btn dense no-caps icon="history" flat label="Histoire"></q-btn>
-        </q-btn-group>
-      </q-toolbar> -->
-      <q-btn-toggle
+      <q-toolbar class="q-ma-none q-pa-none q-pt-xs">
+        <!-- <q-tabs flat active-class="text-green"> -->
+        <!-- <q-btn dense no-caps icon="home" flat label="Accueil"></q-btn> -->
+        <q-btn
+          v-for="route in $router.getRoutes().slice(0, 4)"
+          :key="route.path"
+          no-caps
+          dense
+          flat
+          :color="$route.name == route.name ? 'green' : 'grey'"
+          :to="route.path"
+          :href="route.path"
+          :label="route.meta.label"
+          :icon="route.meta.icon"
+        ></q-btn>
+        <!-- <q-btn dense no-caps icon="contacts" flat label="Contact"></q-btn>
+          <q-btn dense no-caps icon="history" flat label="Histoire"></q-btn> -->
+        <!-- </q-tabs> -->
+      </q-toolbar>
+      <!-- <q-btn-toggle
         v-model="selected"
         spread
         no-caps
@@ -178,7 +173,7 @@
             :class="selected == 'experience' ? 'text-teal bg-transparent' : ''"
           ></q-btn>
         </template>
-      </q-btn-toggle>
+      </q-btn-toggle> -->
     </q-footer>
   </q-layout>
 </template>
@@ -247,3 +242,35 @@ function onscroll(position) {
 }
 const selected = ref("");
 </script>
+<style lang="scss">
+.bg-dark-1 {
+  background: $dark-1;
+}
+.bg-dark-2 {
+  background: $dark-2;
+}
+.bg-dark-3 {
+  background: $dark-3;
+}
+.bg-dark-4 {
+  background: $dark-4;
+}
+.bg-dark-5 {
+  background: $dark-5;
+}
+.bg-dark-6 {
+  background: $dark-6;
+}
+.bg-dark-7 {
+  background: $dark-7;
+}
+.bg-dark-8 {
+  background: $dark-8;
+}
+.bg-dark-9 {
+  background: $dark-9;
+}
+.bg-dark-10 {
+  background: $dark-10;
+}
+</style>
