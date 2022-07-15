@@ -53,7 +53,6 @@
             >
             </q-img>
             <q-badge
-              style="margin-top: -12px"
               :class="
                 'bg-dark-2 text-body1 rounded-borders text-' + proj.labelColor
               "
