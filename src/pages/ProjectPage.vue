@@ -1,14 +1,17 @@
 <template>
-  <q-page padding>
+  <q-page>
     <q-dialog maximized v-model="view">
-      <q-card>
-        <div class="row">
-          <div class="col-12">
-            <q-toolbar>
-              <q-btn @click="view = false" icon="arrow_back"></q-btn>
-            </q-toolbar>
-          </div>
-          <div class="col-12">
+      <q-card class="">
+        <div class="col-xs-12 col-md-10">
+          <q-toolbar>
+            <q-btn @click="view = false" icon="arrow_back"></q-btn>
+          </q-toolbar>
+        </div>
+        <div
+          style="width: 100%"
+          class="row flex flex-centerbg-transparent justify-center"
+        >
+          <div class="col-xs-12 col-md-10">
             <q-img :src="selectedImg"> </q-img>
           </div>
         </div>
@@ -20,64 +23,74 @@
           class="text-center q-my-md"
           :class="$q.screen.lt.md ? 'text-h5' : 'text-h3'"
         >
-          Ce que j'ai construit
+          Projet Réalisé
         </h1>
-        <p class="text-center text-grey text-body2">
-          Ici je vous présente la liste des projets auquels j'ai participé ou
-          que j'ai construit tout seul. je ne citerai pas les projets privés
-          pour les entreprises question de confidentialité. Merci de me
-          comprendre
-        </p>
-        <div class="row">
-          <div
-            class="col-xs-12 col-md-4 q-pa-sm"
-            v-for="(proj, i) in projects"
-            :key="proj.name"
-          >
-            <q-card class="bg-dark-4">
-              <q-img
-                @click="
-                  selectedImg = proj.img;
-                  view = true;
-                "
-                :src="proj.img"
-              >
-              </q-img>
-              <q-badge
-                class="text-body2 rounded-borders"
-                floating
-                v-if="proj.label"
-                >{{ proj.label }}
-                <q-tooltip class="text-body2">
-                  L'application répond aux besoin spécifique du client
-                </q-tooltip>
-              </q-badge>
-
-              <q-card-section>
-                <div class="text-h6 text-grey-4">
-                  <q-btn color="green" flat :href="proj.lien">
-                    {{ i + 1 }}. {{ proj.name.toLocaleUpperCase() }}
-                  </q-btn>
-                </div>
-                <q-badge class="bg-dark-1 text-subtitle1 text-blue">
-                  {{ proj.type }}
-                </q-badge>
-                <div class="text-body2">
-                  Tags:
-                  <q-badge
-                    class="q-ma-sm bg-dark-3 text-pink-4"
-                    v-for="tag in proj.tags"
-                    :key="tag"
-                  >
-                    {{ tag }}
-                  </q-badge>
-                </div>
-                <div class="text-grey-4 q-py-md text-body2">
-                  {{ proj.description }}
-                </div>
-              </q-card-section>
-            </q-card>
+        <div class="row justify-center">
+          <div class="col-xs-12 col-md-7">
+            <p class="text-center text-grey text-body2">
+              Ici je vous présente la liste des projets auquels j'ai participé
+              ou que j'ai construit tout seul. je ne citerai pas les projets
+              privés pour les entreprises question de confidentialité. Merci de
+              me comprendre
+            </p>
           </div>
+        </div>
+      </div>
+      <div class="row justify-center">
+        <div
+          class="col-xs-12 col-md-7 q-pa-sm"
+          v-for="(proj, i) in projects"
+          :key="proj.name"
+        >
+          <q-card class="bg-dark-4">
+            <q-img
+              class="grow"
+              @click="
+                selectedImg = proj.img;
+                view = true;
+              "
+              :src="proj.img"
+            >
+            </q-img>
+            <q-badge
+              style="margin-top: -12px"
+              :class="
+                'bg-dark-2 text-body1 rounded-borders text-' + proj.labelColor
+              "
+              floating
+              v-if="proj.label"
+            >
+              <q-icon left :name="proj.labelIcon"></q-icon>
+              {{ proj.label }}
+              <q-tooltip class="text-body2">
+                L'application répond aux besoin spécifique du client
+              </q-tooltip>
+            </q-badge>
+
+            <q-card-section>
+              <div class="text-h6 text-grey-4">
+                <q-btn color="green" flat :href="proj.lien">
+                  {{ i + 1 }}. {{ proj.name.toLocaleUpperCase() }}
+                </q-btn>
+              </div>
+              <q-badge class="bg-dark-1 text-subtitle1 text-blue">
+                {{ proj.type }}
+              </q-badge>
+              <div class="text-body2">
+                Tags:
+                <q-badge
+                  class="q-ma-sm bg-dark-3 text-pink-4"
+                  v-for="tag in proj.tags"
+                  :key="tag"
+                >
+                  {{ tag }}
+                </q-badge>
+              </div>
+              <div class="text-grey-4 q-py-md text-body2">
+                {{ proj.description }}
+              </div>
+            </q-card-section>
+          </q-card>
         </div>
       </div>
     </div>
@@ -108,7 +121,7 @@ const projects = ref([
   {
     name: "sagecoders",
     img: "src/assets/sagecoders.png",
-    type: "Application de gestion d'hotel",
+    type: "Site web landing page",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["VueJS", "Vuetify", "Material Design"],
     lien: "https://lesage20.github.io",
@@ -116,10 +129,13 @@ const projects = ref([
   {
     name: "djinana",
     img: "src/assets/djinana.png",
-    type: "Application de gestion d'hotel",
+    type: "Application de recolte d'info",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["Python", "Django", "VueJS", "Vuetify", "Material Design"],
     lien: "https://djinana.netlify.app",
+    label: "compétion",
+    labelColor: "pink",
+    labelIcon: "mdi-school",
   },
   {
     name: "sagetodo",
@@ -137,7 +153,19 @@ const projects = ref([
     tags: ["ElectronJS", "VueJS", "Bootstrap", "Javascript"],
     lien: "https://github.com/lesage20/transactions",
     label: "sur commande",
+    labelColor: "green",
+    labelIcon: "task",
   },
 ]);
 const view = ref(false);
 </script>
+<style>
+.grow {
+  transition: transform 0.3s;
+  opacity: 0.9;
+}
+.grow:hover {
+  transition: all 0.3s;
+  opacity: 1;
+}
+</style>

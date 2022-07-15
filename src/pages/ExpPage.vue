@@ -1,5 +1,5 @@
 <template>
-  <q-page padding v-scroll="checkScroll">
+  <q-page padding>
     <div class="row justify-center">
       <div class="col-xs-12 col-md-10">
         <div class="row">
@@ -7,62 +7,60 @@
             :layout="$q.screen.lt.sm ? 'dense' : 'comfortable'"
             color="secondary"
           >
-            <q-timeline-entry heading>
+            <q-timeline-entry
+              v-motion-slide-bottom
+              v-motion-slide-visible-bottom
+              heading
+            >
               Mon Expérience Professionnel
             </q-timeline-entry>
 
-            <transition-group
-              :css="false"
-              @before-enter="onBeforeEnter"
-              @enter="onEnter"
-              @leave="onLeave"
-              appear
+            <q-timeline-entry
+              v-motion-slide-visible-bottom
+              v-motion-slide-bottom
+              icon="work"
+              v-for="(exp, i) in experiences"
+              :key="exp.titre"
+              :heading="exp.type ? true : false"
+              :data-index="i"
             >
-              <q-timeline-entry
-                icon="work"
-                v-for="(exp, i) in experiences"
-                :key="exp.titre"
-                :heading="exp.type ? true : false"
-                :data-index="i"
-              >
-                <span v-if="exp.type">{{ exp.titre }}</span>
-                <template v-slot:title v-if="!Boolean(exp.type)">
-                  {{ exp.titre }}
-                </template>
-                <template v-slot:subtitle v-if="!Boolean(exp.type)">
-                  de {{ exp.debut }} à {{ exp.fin }}
-                </template>
+              <span v-if="exp.type">{{ exp.titre }}</span>
+              <template v-slot:title v-if="!Boolean(exp.type)">
+                {{ exp.titre }}
+              </template>
+              <template v-slot:subtitle v-if="!Boolean(exp.type)">
+                de {{ exp.debut }} à {{ exp.fin }}
+              </template>
 
-                <q-card flat v-if="!Boolean(exp.type)">
-                  <q-card-section>
-                    <div class="text-subtitle1">
-                      <q-chip class="bg-dark-1 text-blue">
-                        Entreprise : {{ exp.entreprise }}
-                      </q-chip>
-                      <q-chip class="bg-dark-1 text-grey-3">
-                        Début: {{ exp.debut }}
-                      </q-chip>
-                      <q-chip class="bg-dark-1 text-pink">
-                        Fin: {{ exp.fin }}
-                      </q-chip>
-                    </div>
-                  </q-card-section>
-                  <q-card-section class="text-body1 text-grey-5">
-                    Techno Utilisées: <br v-if="$q.platform.is.mobile" />
-                    <q-badge
-                      class="q-ma-sm bg-dark-1 text-green text-body2"
-                      v-for="techno in exp.technos"
-                      :key="techno"
-                    >
-                      {{ techno }}
-                    </q-badge>
-                  </q-card-section>
-                  <q-card-section class="text-body1">
-                    {{ exp.description }} <br />
-                  </q-card-section>
-                </q-card>
-              </q-timeline-entry>
-            </transition-group>
+              <q-card flat v-if="!Boolean(exp.type)">
+                <q-card-section>
+                  <div class="text-subtitle1">
+                    <q-chip class="bg-dark-1 text-blue">
+                      Entreprise : {{ exp.entreprise }}
+                    </q-chip>
+                    <q-chip class="bg-dark-1 text-grey-3">
+                      Début: {{ exp.debut }}
+                    </q-chip>
+                    <q-chip class="bg-dark-1 text-pink">
+                      Fin: {{ exp.fin }}
+                    </q-chip>
+                  </div>
+                </q-card-section>
+                <q-card-section class="text-body1 text-grey-5">
+                  Techno Utilisées: <br v-if="$q.platform.is.mobile" />
+                  <q-badge
+                    class="q-ma-sm bg-dark-1 text-green text-body2"
+                    v-for="techno in exp.technos"
+                    :key="techno"
+                  >
+                    {{ techno }}
+                  </q-badge>
+                </q-card-section>
+                <q-card-section class="text-body1">
+                  {{ exp.description }} <br />
+                </q-card-section>
+              </q-card>
+            </q-timeline-entry>
           </q-timeline>
         </div>
       </div>

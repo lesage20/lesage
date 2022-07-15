@@ -24,19 +24,30 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-8 col-lg-6 col-xl-5">
-        <span class="text-green text-body1">Salut je suis,</span>
+        <span
+          class="text-green text-body1"
+          v-motion-slide-top
+          v-motion-slide-visible-top
+          >Salut je suis,</span
+        >
 
-        <my-name></my-name>
+        <my-name v-motion-slide-top v-motion-slide-visible-top></my-name>
         <h2
           class="text-bold q-my-md text-grey-5"
           :class="{
             'text-h2': $q.screen.gt.sm,
             'text-h4': $q.screen.lt.md,
           }"
+          v-motion-slide-top
+          v-motion-slide-visible-top
         >
           Dévéloppeur web Fullstack
         </h2>
-        <p class="text-body1 text-grey-4">
+        <p
+          class="text-body1 text-grey-4"
+          v-motion-slide-top
+          v-motion-slide-visible-top
+        >
           J'aime résoudre des problèmes de la vie courante grâce aux
           algorithmes. Je crée des sites, des applications web de qualité qui
           offrent un confort quelque soit l'appareil utilisé pour les visiter.
@@ -107,19 +118,7 @@
               key="django"
             >
               <q-btn class="right-side-btn" color="primary" flat round>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  style="fill: #1976d2"
-                >
-                  <path
-                    d="M 11 3 L 11 8.1582031 C 10.653 8.0172031 9.9041562 8 9.5351562 8 C 6.7591563 8 4.1894531 9.306 4.1894531 13 C 4.1894531 17.42 7.67 18 10 18 C 10.92 18 13 17.909141 14 17.619141 L 14 3 L 11 3 z M 16 3 L 16 6 L 19 6 L 19 3 L 16 3 z M 16 8 L 16 16.701172 C 16 18.217172 15.078 19.795172 13 20.701172 L 15.859375 21.996094 C 18.765375 20.996094 19 17.701172 19 16.701172 L 19 8 L 16 8 z M 9.9707031 10.550781 C 10.290703 10.550781 10.65 10.609453 11 10.689453 L 11 15.392578 C 10.65 15.472578 10.290703 15.533203 9.9707031 15.533203 C 8.6607031 15.533203 7.390625 15.12 7.390625 13 C 7.390625 10.88 8.6607031 10.550781 9.9707031 10.550781 z"
-                  ></path>
-                </svg>
+                <django-icon></django-icon>
               </q-btn>
             </div>
           </transition-group>
@@ -128,15 +127,22 @@
       <div
         class="col-xs-12 desktop-only justify-center items-center text-center"
       >
-        <scroll-btn> </scroll-btn>
+        <scroll-btn @move="move" to="about"> </scroll-btn>
       </div>
+      <q-page-sticky :offset="[18, 20]" class="mobile-only">
+        <scroll-btn class="bg-dark-3" @move="move" to="about"> </scroll-btn>
+      </q-page-sticky>
     </div>
   </q-page>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, inject } from "vue";
 import ScrollBtn from "src/components/ScrollBtn.vue";
 import MyName from "src/components/MyName.vue";
+import DjangoIcon from "./DjangoIcon.vue";
+
+const anchors = inject("anchors");
+const emits = defineEmits(["move"]);
 const socials = ref([
   {
     name: "linkedin",
@@ -185,13 +191,19 @@ const technos = ref([
 ]);
 
 function onEnter(el, done) {
-  el.style.animationDelay = `${el.dataset.index * 0.2}s`;
+  el.style.animationDelay = `${el.dataset.index * 0.1}s`;
   el.classList.add("animated");
   if (el.dataset.index < socials.value.length) {
     el.classList.add("fadeInRight");
   } else {
     el.classList.add("fadeInLeft");
   }
+}
+
+function move(value) {
+  console.log(value);
+  anchors.about = true;
+  console.log(anchors);
 }
 </script>
 <style lang="scss">

@@ -6,13 +6,23 @@
     round
     outline
     size="lg"
-    href="#service"
+    :href="'#' + to"
+    @click="emits('move', to)"
   >
-    <q-icon class="btn-scroll" name="keyboard_arrow_down"> </q-icon>
+    <q-icon name="keyboard_arrow_down"> </q-icon>
   </q-btn>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  to: {
+    type: String,
+    require: true,
+  },
+});
+
+const emits = defineEmits(["move"]);
+</script>
 <style lang="scss">
 .btn-scroll {
   opacity: 1;
