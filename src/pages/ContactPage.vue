@@ -11,7 +11,6 @@
     <div class="row">
       <div
         v-motion-pop
-        v-motion-pop-visible
         class="col-xs-12 col-md-4 q-pa-sm"
         v-for="contact in contacts"
         :key="contact.name"
