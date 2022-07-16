@@ -74,6 +74,7 @@
         </div>
         <div class="q-py-md">
           <q-btn
+            @click="analyse"
             :size="$q.screen.lt.md ? 'md' : 'lg'"
             :color="$q.screen.lt.md ? 'green' : 'teal'"
             label=" Télécharger mon cv"
@@ -140,6 +141,7 @@ import { ref, inject } from "vue";
 import ScrollBtn from "src/components/ScrollBtn.vue";
 import MyName from "src/components/MyName.vue";
 import DjangoIcon from "./DjangoIcon.vue";
+import { event } from "vue-gtag";
 
 const anchors = inject("anchors");
 const emits = defineEmits(["move"]);
@@ -204,6 +206,15 @@ function move(value) {
   console.log(value);
   anchors.about = true;
   console.log(anchors);
+}
+const analyticCount = ref(1);
+function analyse() {
+  analyticCount.value += 1;
+  event("test-analytics-click", {
+    event_category: "FirstAnalytic",
+    event_label: "TestAnalytics",
+    value: analyticCount.value,
+  });
 }
 </script>
 <style lang="scss">
