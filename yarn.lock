@@ -4296,6 +4296,11 @@
     "lodash" "^4.17.21"
     "semver" "^7.3.6"
 
+"vue-gtag@^2.0.1":
+  "integrity" "sha512-aM4A58FVL0wV2ptYi+xzAjeg+pQVRyUcfBc5UkXAwQrR4t3WBhor50Izp2I+3Oo7+l+vWJ7u78DGcNzReb8S/A=="
+  "resolved" "https://registry.npmjs.org/vue-gtag/-/vue-gtag-2.0.1.tgz"
+  "version" "2.0.1"
+
 "vue-router@^4.0.0", "vue-router@^4.0.12":
   "integrity" "sha512-5BP1qXFncVRwgV/XnqzsKApdMjQPqWIpoUBdL1ynz8HyLxIX/UDAx7Ql2BjmA5CXT/p61JfZvkpiFWFpaqcfag=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.1.2.tgz"
