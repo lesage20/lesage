@@ -1,7 +1,7 @@
 {
   "name": "lesage",
-  "version": "0.0.1",
-  "description": "Le Sage construit son portfolio pour se présenter, présenter ses services et ses oeuvres déja réalisées. Contactez moi pour tout besoin de mes services ou m'embaucher avec mon contact +2250787572030 ou +2250555884378. Merci et n'oubliez pas de m'écrire pour me dire ce que vous avez pensé de mon portfolio",
+  "version": "1.0.0",
+  "description": "Qui est Le Sage? Le Sage est un développeur Freelance qui utilise django et vuejs pour realiser des applications web, mobile et desktop. Ici vous êtes sur  son portfolio vous apprendrez beaucoup sur Ange Aymar Zanou,  ses services et ses oeuvres déja réalisées. Contactez moi pour tout besoin de  services ou m'embaucher avec mon contact +2250787572030 ou +2250555884378. Merci et n'oubliez pas de m'écrire pour me dire ce que vous avez pensé de mon portfolio",
   "productName": "Le Sage",
   "author": "lesage20 <angezanou00@gmail.com>",
   "private": true,
@@ -14,6 +14,7 @@
     "@quasar/extras": "^1.0.0",
     "@vueuse/motion": "^2.0.0-beta.12",
     "axios": "^0.21.1",
+    "html2pdf.js": "^0.9.3",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",

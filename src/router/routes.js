@@ -27,6 +27,12 @@ const routes = [
         name: "contacts",
         meta: { label: "Contacts", icon: "contacts" },
       },
+      {
+        path: "resume",
+        name: "resume",
+        component: () => import("pages/ResumeGenerator.vue"),
+        meta: { label: "Resume", icon: "mdi-file-account" },
+      },
     ],
   },
 

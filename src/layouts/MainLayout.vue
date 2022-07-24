@@ -71,6 +71,8 @@
           outline
           :size="$q.screen.name"
           color="green"
+          :href="myResume"
+          download
         >
         </q-btn>
         <!-- <q-btn dense no-caps @click="$q.dark.toggle" flat icon="more_vert">
@@ -185,11 +187,13 @@ import { useQuasar } from "quasar";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const myResume = new URL("../assets/cv_ange_aymar_zanou.pdf", import.meta.url)
+  .href;
 const socials = ref([
   {
     name: "linkedin",
     icon: "mdi-linkedin",
-    link: "https://linkedin.com/bypassingit",
+    link: "https://www.linkedin.com/in/ange-aymar-zanou-0b6165183",
     color: "blue-8",
   },
 
@@ -202,7 +206,7 @@ const socials = ref([
   {
     name: "facebook",
     icon: "mdi-facebook",
-    link: "https://facebook.com/bypassingit",
+    link: "https://facebook.com/thehrcker",
     color: "blue",
   },
   {

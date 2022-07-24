@@ -19,7 +19,12 @@
               round
               :data-index="index"
               :icon="soc.icon"
-            ></q-btn>
+              :href="soc.link"
+            >
+              <q-tooltip class="text-body2">
+                {{ soc.name }}
+              </q-tooltip>
+            </q-btn>
           </transition-group>
         </div>
       </div>
@@ -28,8 +33,9 @@
           class="text-green text-body1"
           v-motion-slide-top
           v-motion-slide-visible-top
-          >Salut je suis,</span
         >
+          Salut je suis,
+        </span>
 
         <my-name v-motion-slide-top v-motion-slide-visible-top></my-name>
         <h2
@@ -81,6 +87,8 @@
             icon="download"
             :outline="$q.platform.is.mobile ? true : false"
             :class="{ 'full-width': $q.platform.is.mobile }"
+            :href="myResume"
+            download
           ></q-btn>
         </div>
       </div>
@@ -110,6 +118,7 @@
                 class="right-side-btn"
                 color="primary"
               >
+                <q-tooltip class="text-body2">{{ techno.name }}</q-tooltip>
               </q-btn>
             </div>
 
@@ -120,6 +129,13 @@
             >
               <q-btn class="right-side-btn" color="primary" flat round>
                 <django-icon></django-icon>
+                <q-tooltip
+                  anchor="bottom left "
+                  position="left"
+                  class="text-body2"
+                >
+                  django
+                </q-tooltip>
               </q-btn>
             </div>
           </transition-group>
@@ -143,13 +159,15 @@ import MyName from "src/components/MyName.vue";
 import DjangoIcon from "./DjangoIcon.vue";
 import { event } from "vue-gtag";
 
+const myResume = new URL("../assets/cv_ange_aymar_zanou.pdf", import.meta.url)
+  .href;
 const anchors = inject("anchors");
 const emits = defineEmits(["move"]);
 const socials = ref([
   {
     name: "linkedin",
     icon: "mdi-linkedin",
-    link: "https://linkedin.com/bypassingit",
+    link: "https://www.linkedin.com/in/ange-aymar-zanou-0b6165183",
     color: "blue-8",
   },
 
@@ -174,7 +192,7 @@ const socials = ref([
   {
     name: "facebook",
     icon: "mdi-facebook",
-    link: "https://facebook.com/bypassingit",
+    link: "https://facebook.com/thehrcker",
     color: "blue",
   },
   {
@@ -218,15 +236,15 @@ function analyse() {
 }
 </script>
 <style lang="scss">
-.right-side-btn:hover,
-.left-side-btn:hover {
-  transition: transform 0.3s;
-  color: $blue-1 !important;
-}
-.left-side-btn:hover {
-  transform: translateX(50%);
-}
-.right-side-btn:hover {
-  transform: translateX(-50%);
-}
+// .right-side-btn:hover,
+// .left-side-btn:hover {
+//   transition: transform 0.3s;
+//   color: $blue-1 !important;
+// }
+// .left-side-btn:hover {
+//   transform: translateX(50%);
+// }
+// .right-side-btn:hover {
+//   transform: translateX(-50%);
+// }
 </style>

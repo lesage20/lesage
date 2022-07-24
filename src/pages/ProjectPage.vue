@@ -102,7 +102,7 @@ import { ref } from "vue";
 const projects = ref([
   {
     name: "paradisias",
-    img: "src/assets/paradisias-web.png",
+    img: new URL("../assets/paradisias-web.png", import.meta.url).href,
     type: "Application de gestion d'hotel",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: [
@@ -119,7 +119,7 @@ const projects = ref([
   },
   {
     name: "sagecoders",
-    img: "src/assets/sagecoders.png",
+    img: new URL("../assets/sagecoders.png", import.meta.url).href,
     type: "Site web landing page",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["VueJS", "Vuetify", "Material Design"],
@@ -127,7 +127,7 @@ const projects = ref([
   },
   {
     name: "djinana",
-    img: "src/assets/djinana.png",
+    img: new URL("../assets/djinana.png", import.meta.url).href,
     type: "Application de recolte d'info",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["Python", "Django", "VueJS", "Vuetify", "Material Design"],
@@ -138,7 +138,7 @@ const projects = ref([
   },
   {
     name: "sagetodo",
-    img: "src/assets/sagetodo.png",
+    img: new URL("../assets/sagetodo.png", import.meta.url).href,
     type: "Application de gestion d'hotel",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["Python", "Django", "VueJS", "Vuetify", "Material Design"],
@@ -146,7 +146,7 @@ const projects = ref([
   },
   {
     name: "transaction",
-    img: "src/assets/transaction-desktop-app.png",
+    img: new URL("../assets/transaction-desktop-app.png", import.meta.url).href,
     type: "Application de gestion de transaction",
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequuntur at beatae inventore ea temporibus officiis nulla illo, pariatur magni saepe asperiores adipisci eveniet ab! Officia quibusdam minus laudantium soluta!`,
     tags: ["ElectronJS", "VueJS", "Bootstrap", "Javascript"],

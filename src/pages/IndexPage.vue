@@ -1,5 +1,5 @@
 <template>
-  <q-page class="hide-scrollbar" padding>
+  <q-page padding>
     <hero-comp></hero-comp>
     <about-me
       v-if="anchors.about || $q.platform.is.mobile"

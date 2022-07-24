@@ -77,7 +77,7 @@ const contacts = ref([
   {
     name: "LinkedIn",
     icon: "mdi-linkedin",
-    url: "angezanou00@gmail.com",
+    url: "https://www.linkedin.com/in/ange-aymar-zanou-0b6165183",
     value: "Ange Aymar Zanou",
     color: "blue",
     img: "https://cdn.pixabay.com/photo/2016/01/26/17/15/gmail-1162901_960_720.png",

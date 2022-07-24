@@ -134,6 +134,7 @@ const experiences = ref([
   },
   { titre: "2021", type: "heading" },
 ]);
+
 const tab = ref(experiences.value[0].entreprise);
 function onEnter(el, done) {
   el.style.animationDelay = `${el.dataset.index * 0.2}s`;

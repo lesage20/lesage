@@ -15,7 +15,7 @@
           class="q-pa-sm border-green"
           v-motion-slide-visible-bottom
         >
-          <q-img contain src="~/assets/lesage.png"></q-img>
+          <q-img contain src="~/assets/lesage3.png"></q-img>
         </q-card>
       </div>
       <div class="col-xs-12 col-md-6">
@@ -33,23 +33,16 @@
             v-motion-slide-visible-bottom
             class="text-body1 text-grey q-pa-none"
           >
-            Je suis <span class="text-blue">Ange Aymar Zanou</span> à l'etat
-            civil et mon nom de éveloppeur est
-            <span class="text-green">Le Sage</span>. Je suis passioné de la
-            programmation depuis la classe de 1ère. Mais c'est 3 ans après que
-            jaurai mon premier ordinateur ou je commence par
-            <span class="text-blue">
-              la cybersecurité et l'ethical hacking
-            </span>
-            dans lequel j'étais plutôt bon et dans le but de créer mes propres
-            outils de
-            <span class="text-green">pentest</span> j'ai commencer
-            l'apprentissage du code un an après mon initiation à
-            <span class="text-blue">l'ethical hacking</span>. Aujourd'hui je
-            suis
-            <span class="text-pink">
-              développeur fullstack en django et vuejs </span
-            >.
+            Bonjour Chers internautes, Je suis Ange Aymar Zanou. Mais, mon nom
+            de Développeur est Le Sage. Je suis passioné de la programmation
+            depuis la classe de première D. En effet, ma passion pour
+            l’informatique débute au secondaire. Après le BAC, quand j’acquiers
+            mon premier ordinateur, je commence mes débuts de recherche dans la
+            cybersécurité et l’ethical hacking à l’Université virtuelle de C.I,
+            j’entame des études d’informatique, Réseaux et Sécurité
+            Informatique. Aujourd’hui, je suis un développeur fullstack en
+            Django et vuejs. Je suis basé à Abidjan, Je me tiens à votre
+            disposition. Votre serviteur, le Sage. À bientôt!
           </q-card-section>
 
           <q-card-section class="q-px-none">
